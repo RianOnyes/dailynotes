@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBF4F6"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/blueDark"
+        android:padding="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12sp"
+            android:layout_gravity="left|center_vertical"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_menu_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blueDark"
+            android:padding="16sp"
+            android:text="Note Lists"
+            android:textColor="@color/blueLighter"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnMenu"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/noteLists"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blueLighter"
+        android:cacheColorHint="@color/blueDark"
+        android:textColor="@color/blueDark"
+        android:padding="10sp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </ListView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/blueLight"
+        android:contentDescription="Tambah Note"
+        android:src="@drawable/baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="128dp"
+        android:background="@color/blue"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blueDark"
+                android:orientation="horizontal"
+                android:padding="20sp">
+
+                <ImageButton
+                    android:id="@+id/btnMenuAside"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="12sp"
+                    android:background="@android:color/transparent"
+                    android:padding="4sp"
+                    android:src="@drawable/baseline_menu_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/navBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blueDark"
+                    android:paddingLeft="12sp"
+                    android:text="Dailies."
+                    android:textColor="@color/blueLighter"
+                    android:textSize="32sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnMainAct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blackTransparent"
+                    android:drawableLeft="@drawable/baseline_home_24"
+                    android:hapticFeedbackEnabled="false"
+                    android:padding="12sp"
+                    android:shadowColor="#AAAAAA"
+                    android:text="Home"
+                    android:textColor="@color/blueLighter"
+                    android:textAlignment="textStart"
+                    android:textSize="24sp"
+                    app:cornerRadius="0sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDailyQuotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blackTransparent"
+                    android:drawableLeft="@drawable/baseline_format_quote_24"
+                    android:padding="12sp"
+                    android:shadowColor="#AAAAAA"
+                    android:textColor="@color/blueLighter"
+                    android:text="Quotes"
+                    android:textAlignment="textStart"
+                    android:textSize="24sp"
+                    app:cornerRadius="0sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDailyJokes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blackTransparent"
+                    android:drawableLeft="@drawable/baseline_tag_faces_24"
+                    android:padding="12sp"
+                    android:shadowColor="#AAAAAA"
+                    android:textColor="@color/blueLighter"
+                    android:text="Dad Jokes"
+                    android:textAlignment="textStart"
+                    android:textSize="24sp"
+                    app:cornerRadius="0sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginTop="256sp"
+                    android:backgroundTint="@color/blackTransparent"
+                    android:drawableTop="@drawable/baseline_logout_24"
+                    android:padding="12sp"
+                    android:shadowColor="#AAAAAA"
+                    android:textColor="@color/blueLighter"
+                    android:text="Logout"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:cornerRadius="0sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
