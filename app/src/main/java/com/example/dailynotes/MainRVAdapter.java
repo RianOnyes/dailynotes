@@ -1,5 +1,7 @@
 package com.example.dailynotes;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +15,17 @@ import java.util.List;
 public class MainRVAdapter extends RecyclerView.Adapter<MainRVAdapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
-    private List<String> data;
+    private static List<String> notes;
+    private static List<String> dates;
+    private static List<String> ids;
+    private static Context context;
 
-    MainRVAdapter(LayoutInflater layoutInflater, List<String> data) {
+    MainRVAdapter(LayoutInflater layoutInflater, List<String> data1, List<String> data2, List<String> data3) {
         this.layoutInflater = layoutInflater;
-        this.data = data;
+        this.notes = data1;
+        this.dates = data2;
+        this.ids = data3;
+        this.context = layoutInflater.getContext();
     }
 
     @NonNull
@@ -29,16 +37,16 @@ public class MainRVAdapter extends RecyclerView.Adapter<MainRVAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MainRVAdapter.ViewHolder holder, int position) {
-        String note = data.get(position);
+        String note = notes.get(position);
         ViewHolder.noteNote.setText(note);
 
-        String date = data.get(position);
+        String date = dates.get(position);
         ViewHolder.noteDate.setText(date);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return notes.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,6 +57,17 @@ public class MainRVAdapter extends RecyclerView.Adapter<MainRVAdapter.ViewHolder
             super(itemView);
             noteNote = itemView.findViewById(R.id.noteNote);
             noteDate = itemView.findViewById(R.id.noteDate);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, NoteViewActivity.class);
+                    intent.putExtra("note", notes.get(getAdapterPosition()));
+                    intent.putExtra("date", dates.get(getAdapterPosition()));
+                    intent.putExtra("id", ids.get(getAdapterPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

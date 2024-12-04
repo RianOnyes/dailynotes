@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton btnAddNote;
     ImageButton btnMenu, btnMenuAside;
     NavigationView navBar;
-    ListView noteLists;
+    RecyclerView noteCards;
+    MainRVAdapter adapter;
 
     private static final String SHARED_PREF_NAME = "com.dailynotes.sharedpref_key";
     private static final String KEY_SESSION = "session_key";
@@ -77,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         btnMenuAside = findViewById(R.id.btnMenuAside);
         btnAddNote = findViewById(R .id.btnAddNote);
         navBar = findViewById(R.id.navBar);
-        noteLists = findViewById(R.id.noteLists);
 
 //        Styles
 
@@ -107,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             ArrayList<String> notes = new ArrayList<>();
+                            ArrayList<String> dates = new ArrayList<>();
+                            ArrayList<String> ids = new ArrayList<>();
 
                             JSONObject jsonObject = new JSONObject(response);
                             String jsonMessage = jsonObject.getString("message");
@@ -115,12 +118,17 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), jsonMessage, Toast.LENGTH_SHORT).show();
 
                             for (int i =0; i < jsonArray.length(); i++){
-                                JSONObject jsonNotes = jsonArray.getJSONObject(i);
-                                notes.add(jsonNotes.getString("note"));
+                                JSONObject jsonNote = jsonArray.getJSONObject(i);
+
+                                notes.add(jsonNote.getString("note"));
+                                dates.add(jsonNote.getString("date"));
+                                ids.add(jsonNote.getString("id_note"));
                             }
 
-                            ArrayAdapter<String> arr =  new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_gallery_item, notes);
-                            noteLists.setAdapter(arr);
+                            noteCards = findViewById(R.id.noteLists);
+                            noteCards.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                            adapter = new MainRVAdapter(getLayoutInflater(), notes, dates, ids);
+                            noteCards.setAdapter(adapter);
 
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
