@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8ED8F"
     tools:context=".AddNoteActivity">
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
-        android:background="#27A3AD"
+        android:background="#5D3D0D"
         android:padding="12dp"
         android:text="Tambah Catatan"
         android:textAlignment="center"
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#27A2AC"
+        android:backgroundTint="#BD7C10"
         android:backgroundTintMode="add"
         android:text="Tambah"
         android:textSize="16sp"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#071952"
+        android:backgroundTint="#BD7C10"
         android:backgroundTintMode="add"
         android:text="Cancel"
         android:textSize="16sp"

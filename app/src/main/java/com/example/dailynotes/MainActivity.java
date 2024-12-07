@@ -80,17 +80,15 @@ public class MainActivity extends AppCompatActivity {
         btnAddNote = findViewById(R .id.btnAddNote);
         navBar = findViewById(R.id.navBar);
 
-//        Styles
-
 
 //        Run Functions
 
         getNotes();
         addNote();
-
         menuVisibility();
-
+        navMenu();
         userLogout();
+
     }
 
 //    Functions
@@ -101,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queueGet = Volley.newRequestQueue(getApplicationContext());
         Connections connection = new Connections();
         String url = connection.getNotes+"?session_key="+sessionKey;
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 url,
                 new Response.Listener<String>() {
@@ -175,6 +174,18 @@ public class MainActivity extends AppCompatActivity {
     public void addNote() {
         btnAddNote.setOnClickListener(View -> {
             Intent intent = new Intent(this, AddNoteActivity.class);
+            startActivity(intent);
+        });
+    }
+
+//    Nav Functions
+    public void navMenu() {
+        btnDailyQuotes.setOnClickListener(View -> {
+            Intent intent = new Intent(this, QuotesActivity.class);
+            startActivity(intent);
+        });
+        btnDailyJokes.setOnClickListener(View -> {
+            Intent intent = new Intent(this, JokesActivity.class);
             startActivity(intent);
         });
     }

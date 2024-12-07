@@ -5,92 +5,79 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBF4F6"
-    tools:context=".MainActivity">
+    tools:context=".QuotesActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#5D3D0D"
-            android:orientation="horizontal"
-            android:padding="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageButton
-                android:id="@+id/btnMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:src="@drawable/baseline_menu_24"
-                app:layout_constraintStart_toStartOf="@+id/header"
-                app:layout_constraintTop_toTopOf="@+id/header"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/txtTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Note Lists"
-                android:textColor="@color/blueLighter"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/btnMenu"
-                app:layout_constraintTop_toTopOf="@+id/header" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/noteContainer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/Mocca"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/noteLists"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/Mocca"
-                android:cacheColorHint="@color/blueDark"
-                android:padding="10sp"
-                android:textColor="@color/blueDark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <!--    Floating Button Section-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddNote"
+        android:id="@+id/btnRefreshQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
         android:backgroundTint="@color/MoccaLatte"
-        android:contentDescription="Tambah Note"
-        android:src="@drawable/baseline_add_24"
+        android:contentDescription="Refresh"
+        android:src="@drawable/baseline_refresh_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5D3D0D"
+        android:orientation="horizontal"
+        android:padding="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!--    Navbar Section -->
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_menu_24"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toTopOf="@+id/header"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Daily Quotes"
+            android:textColor="@color/blueLighter"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/btnMenu"
+            app:layout_constraintTop_toTopOf="@+id/header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txtQuote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <TextView
+        android:id="@+id/txtAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuote" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navBar"
@@ -146,7 +133,7 @@
                     android:id="@+id/btnMainAct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/chocoDark"
+                    android:backgroundTint="@color/blueDark"
                     android:drawableLeft="@drawable/baseline_home_24"
                     android:hapticFeedbackEnabled="false"
                     android:padding="12sp"
@@ -168,7 +155,7 @@
                     android:id="@+id/btnDailyQuotes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/blueDark"
+                    android:backgroundTint="@color/chocoDark"
                     android:drawableLeft="@drawable/baseline_format_quote_24"
                     android:padding="12sp"
                     android:shadowColor="#AAAAAA"
@@ -228,4 +215,5 @@
 
 
     </com.google.android.material.navigation.NavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

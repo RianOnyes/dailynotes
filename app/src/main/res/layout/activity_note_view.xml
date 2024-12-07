@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8ED8F"
     tools:context=".NoteViewActivity">
 
     <ImageButton
@@ -29,8 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
+        android:text="Note"
         android:textColor="@color/blackLight"
-        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,10 +43,10 @@
         android:layout_marginTop="150dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
+        android:enabled="false"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:padding="12sp"
-        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -83,10 +84,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:visibility="invisible"
         android:backgroundTint="@color/greenLight"
         android:padding="12sp"
         android:src="@drawable/baseline_check_24"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

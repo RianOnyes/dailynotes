@@ -8,8 +8,13 @@
     <color name="blueLighter">#EBF4F6</color>
     <color name="blueLight">#00BCD4</color>
     <color name="blue">#1039A4</color>
-    <color name="blueDark">#071952</color>
+    <color name="blueDark">#402706</color>
+    <color name="chocoDark">#2E1C05</color>
     <color name="redLight">#E91E63</color>
     <color name="greenLight">#4CAF50</color>
+    <color name="vanila">#FAEBCD</color>
+    <color name="Mocca">#F7C873</color>
+    <color name="MoccaLatte">#BD7C10</color>
+
 
 </resources>
