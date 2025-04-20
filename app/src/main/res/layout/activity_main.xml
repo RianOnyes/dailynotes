@@ -76,7 +76,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <!--    Floating Button Section-->
+    <!--    Floating Button Section-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddNote"
         android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-        <!--    Navbar Section -->
+    <!--    Navbar Section -->
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navBar"
@@ -228,4 +228,25 @@
 
 
     </com.google.android.material.navigation.NavigationView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,8 +2,8 @@ package com.example.dailynotes;
 
 public class Connections {
 //    Base Url
-    String urlNotes = "http://192.168.1.4/cobaapi/api/";
-    String urlAuth =  "http://192.168.1.4/cobaapi/auth/";
+    String urlNotes = "http://192.168.1.7/cobaapi/api/";
+    String urlAuth =  "http://192.168.1.7/cobaapi/auth/";
 
 //    Endpoints
     String getNotes = urlNotes + "getnotes.php";
