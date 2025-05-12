@@ -75,8 +75,8 @@ public class QuotesActivity extends AppCompatActivity {
     }
 
     public void getQuotes() {
-        String category = "happiness";
-        String url = "https://api.api-ninjas.com/v1/quotes?category=" + category;
+
+        String url = "https://api.api-ninjas.com/v1/quotes?category=";
         String apiKey = "ennbLkQ+A+CuIw8BwcLOVw==0ICNWulexfOMMWBi";
 
         // Instantiate the RequestQueue
