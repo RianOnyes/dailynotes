@@ -9,6 +9,7 @@ Aplikasi ini adalah project mobile sederhana yang menampilkan kumpulan dad jokes
 - Refresh untuk mendapatkan joke baru.
 - Menyimpan jokes favorit.
 - Melihat history jokes yang sudah pernah dibuka.
+- Menambahkan catatan dari user.
 
 ---
 
